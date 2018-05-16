@@ -1,0 +1,33 @@
+{
+  "name": "image-processor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:func": "npx sls deploy function -f processImage",
+    "deploy": "npx sls deploy",
+    "offline": "npx sls offline start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidHe1127/parrodise-image-processor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidHe1127/parrodise-image-processor/issues"
+  },
+  "homepage": "https://github.com/DavidHe1127/parrodise-image-processor#readme",
+  "dependencies": {
+    "aws-sdk": "^2.224.1",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-apigwy-binary": "^0.1.0",
+    "sharp": "^0.20.1"
+  },
+  "devDependencies": {
+    "serverless": "^1.26.1",
+    "serverless-offline": "^3.20.2"
+  }
+}
