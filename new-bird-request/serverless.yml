@@ -16,6 +16,7 @@ provider:
   stage: dev
   environment:
     TOPIC_ARN: 'arn:aws:sns:${self:provider.region}:#{AWS::AccountId}:${self:custom.topic}'
+    QUEUE_URL: 'https://sqs.${self:provider.region}.amazonaws.com/#{AWS::AccountId}/NEW_BIRD_REQ'
   iamRoleStatements:
     - Effect: "Allow"
       Resource: "*"
