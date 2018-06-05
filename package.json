@@ -1,0 +1,23 @@
+{
+  "name": "parrodise-services",
+  "version": "1.0.0",
+  "description": "This Repo includes all micro-services we employ to power our parrodise app.",
+  "main": "httpclient.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidHe1127/parrodise-services.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidHe1127/parrodise-services/issues"
+  },
+  "homepage": "https://github.com/DavidHe1127/parrodise-services#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
