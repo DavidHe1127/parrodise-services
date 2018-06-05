@@ -6,7 +6,7 @@ const sqs = new AWS.SQS({
 
 const receiveMessagePromise = util.promisify(sqs.receiveMessage);
 
-module.exports.getNewProductRequest = event => {
+module.exports.getNewBirdRequest = event => {
   receiveMessagePromise
     .call(sqs, {
       QueueUrl: process.env.QUEUE_URL,

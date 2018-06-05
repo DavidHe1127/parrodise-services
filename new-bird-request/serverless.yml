@@ -16,7 +16,9 @@ provider:
   stage: dev
   environment:
     TOPIC_ARN: 'arn:aws:sns:${self:provider.region}:#{AWS::AccountId}:${self:custom.topic}'
-    QUEUE_URL: 'https://sqs.${self:provider.region}.amazonaws.com/#{AWS::AccountId}/NEW_BIRD_REQ'
+    QUEUE_URL: 'https://sqs.${self:provider.region}.amazonaws.com/#{AWS::AccountId}/${self:custom.topic}-QUEUE'
+    # set region in env for serverless offline
+    REGION: ${self:provider.region}
   iamRoleStatements:
     - Effect: "Allow"
       Resource: "*"
@@ -44,6 +46,11 @@ functions:
           path: new-bird-requests
           method: get
           cors: true
+          authorizer:
+            name: authorizer
+            identitySource: method.request.header.Authorization
+            arn: arn:aws:cognito-idp:us-east-2:616874792320:userpool/us-east-2_R2KUELtYK
+            type: token
 
   authorizerFunc:
     handler: handler.authorizerFunc
