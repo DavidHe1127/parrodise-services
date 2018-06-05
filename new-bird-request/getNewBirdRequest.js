@@ -6,16 +6,25 @@ const sqs = new AWS.SQS({
 
 const receiveMessagePromise = util.promisify(sqs.receiveMessage);
 
-module.exports.getNewBirdRequest = event => {
+module.exports.getNewBirdRequest = (event, context, callback) => {
   receiveMessagePromise
     .call(sqs, {
       QueueUrl: process.env.QUEUE_URL,
       MaxNumberOfMessages: 10,
     })
     .then(msg => {
-      console.log(msg);
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify({
+          message: msg
+        })
+      });
     })
     .catch(err => {
-      console.log(err);
+      callback(null, {
+        statusCode: 501,
+        headers: { 'Content-Type': 'text/plain' },
+        body: 'Messages cannot be received for some reasons',
+      });
     });
 };
