@@ -24,6 +24,10 @@ provider:
       Resource: "*"
       Action:
         - "sns:*"
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "sqs:*"
 
 functions:
   requestNewBird:
