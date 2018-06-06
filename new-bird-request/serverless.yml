@@ -56,9 +56,6 @@ functions:
             arn: arn:aws:cognito-idp:us-east-2:616874792320:userpool/us-east-2_R2KUELtYK
             type: token
 
-  authorizerFunc:
-    handler: handler.authorizerFunc
-
 resources:
   Resources:
     SQSQueue:
