@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DavidHe1127/parrodise-services#readme",
   "dependencies": {
-    "axios": "^0.18.0"
+    "amazon-cognito-identity-js": "^2.0.9",
+    "node-fetch": "^2.1.2"
   }
 }
