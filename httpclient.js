@@ -3,7 +3,7 @@ const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 global.fetch = require('node-fetch');
 
 const url =
-  'https://94qpw7h9tk.execute-api.ap-southeast-2.amazonaws.com/dev/new-bird-requests';
+  'https://cfm5fzwjei.execute-api.ap-southeast-2.amazonaws.com/dev/new-bird-request';
 const auth =
   '';
 

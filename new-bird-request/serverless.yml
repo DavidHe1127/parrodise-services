@@ -36,7 +36,8 @@ functions:
       - http:
           path: new-bird-request
           method: post
-          cors: true
+          cors:
+            origin: '*'
           authorizer:
             name: authorizer
             identitySource: method.request.header.Authorization
@@ -49,7 +50,8 @@ functions:
       - http:
           path: new-bird-requests
           method: get
-          cors: true
+          cors:
+            origin: '*'
           authorizer:
             name: authorizer
             identitySource: method.request.header.Authorization
