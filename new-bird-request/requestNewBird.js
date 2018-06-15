@@ -16,8 +16,10 @@ module.exports.requestNewBird = (event, context, callback) => {
     return;
   }
 
+  data.payload.timestamp = Date.now();
+
   const params = {
-    Message: data.payload,
+    Message: JSON.stringify(data.payload),
     TopicArn: process.env.TOPIC_ARN,
   };
 
