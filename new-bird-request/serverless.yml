@@ -14,9 +14,10 @@ provider:
   runtime: nodejs8.10
   region: ap-southeast-2
   stage: dev
+  accountId: '#{AWS::AccountId}'
   environment:
     TOPIC_ARN: 'arn:aws:sns:${self:provider.region}:#{AWS::AccountId}:${self:custom.topic}'
-    QUEUE_URL: 'https://sqs.${self:provider.region}.amazonaws.com/#{AWS::AccountId}/${self:custom.topic}-QUEUE'
+    QUEUE_URL: https://sqs.${self:provider.region}.amazonaws.com/${self:provider.accountId}/${self:custom.topic}-QUEUE
     # set region in env for serverless offline
     REGION: ${self:provider.region}
   iamRoleStatements:
