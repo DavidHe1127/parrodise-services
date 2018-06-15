@@ -5,18 +5,19 @@ const sns = new AWS.SNS({
 
 module.exports.requestNewBird = (event, context, callback) => {
   const data = JSON.parse(event.body);
-  if (typeof data.note !== 'string') {
-    console.error('Validation Failed');
+
+  if (!data.payload || !data.payload.status || !data.payload.reason) {
     callback(null, {
       statusCode: 400,
       headers: {'Content-Type': 'text/plain'},
-      body: "Couldn't add the note.",
+      body: "Payload is either empty or it does not have status or reason properties",
     });
+
     return;
   }
 
   const params = {
-    Message: data.note,
+    Message: data.payload,
     TopicArn: process.env.TOPIC_ARN,
   };
 
